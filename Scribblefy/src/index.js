@@ -13,7 +13,7 @@ const App = () => {
       <AnimatedSplash
         translucent={true}
         isLoaded={loading}
-        logoImage={require('./assets/img/transplantar_logo.png')}
+        // logoImage={require('./assets/img/transplantar_logo.png')}
         backgroundColor={'#6E78F7'}
         logoHeight={350}
         logoWidth={300}>
