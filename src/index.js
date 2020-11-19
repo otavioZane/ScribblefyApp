@@ -14,7 +14,7 @@ const App = () => {
         translucent={true}
         isLoaded={loading}
         // logoImage={require('./assets/img/scribblefy_logo.png')}
-        backgroundColor={'#6E78F7'}
+        backgroundColor={'#000'}
         logoHeight={350}
         logoWidth={300}>
         <Routes />
