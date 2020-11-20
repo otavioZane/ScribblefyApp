@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {Container} from './styles';
-import {View, FlatList, Text, StyleSheet, Alert} from 'react-native';
+import {Container, InputLabel, InputText} from './styles';
+import {View, FlatList, Text, StyleSheet, Alert, Button} from 'react-native';
 
 const Storage = ({navigation}) => {
   const [places, setPlaces] = React.useState([]);
@@ -94,9 +94,9 @@ const Storage = ({navigation}) => {
           onChangeText={(text) => setLongitude(text)}
           placeholder="Longitude..."
         />
-        <RoundButton
+        <Button
           onPress={() => handleRegisterPlace()}
-          text="Cadastrar"
+          title="Cadastrar"
           textColor="#fff"
           backgroundColor="#000"
         />
