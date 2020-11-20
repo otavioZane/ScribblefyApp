@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Platform} from 'react-native';
 import MapView, {
   Marker,
@@ -50,6 +50,7 @@ const fetchData = async () => {
       if (place.length > 0) {
         this.state.place = place;
       } else {
+        this.state.place = place;
         Alert.alert(
           'Nenhum local encontrado',
           'O que acha de cadastrar um endereço?',
@@ -77,8 +78,8 @@ class AnimatedMarkers extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetchData();
+  async componentDidMount() {
+    await fetchData();
 
     const {coordinate} = this.state;
 
