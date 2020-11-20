@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Container} from './styles';
-import Map from '../../components/map'
+import Map from '../../components/Map';
 
 const Home = ({navigation}) => {
   return (
     <Container>
-      <Map />      
+      <Map />
     </Container>
   );
 };
