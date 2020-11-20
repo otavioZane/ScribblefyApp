@@ -2,7 +2,7 @@ import React from 'react';
 import {Container} from './styles';
 import {View} from 'react-native';
 
-const Home = ({navigation}) => {
+const Storage = ({navigation}) => {
   return (
     <Container>
       
@@ -10,4 +10,4 @@ const Home = ({navigation}) => {
   );
 };
 
-export default Home;
+export default Storage;
