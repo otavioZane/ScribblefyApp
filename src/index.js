@@ -13,7 +13,7 @@ const App = () => {
       <AnimatedSplash
         translucent={true}
         isLoaded={loading}
-        // logoImage={require('./assets/img/scribblefy_logo.png')}
+        logoImage={require('./assets/img/scribblefy_logo.png')}
         backgroundColor={'#000'}
         logoHeight={350}
         logoWidth={300}>

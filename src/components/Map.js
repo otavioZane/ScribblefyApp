@@ -14,50 +14,24 @@ const LONGITUDE_DELTA = 0.009;
 const LATITUDE = 37.78825;
 const LONGITUDE = -122.4324;
 
-const requestLocationPermission = async () => {
-  if (Platform.OS === 'ios') {
-    getOneTimeLocation();
-    subscribeLocationLocation();
-  } else {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: 'Location Access Required',
-          message: 'This App needs to Access your location',
-        },
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        //To Check, If Permission is granted
-        getOneTimeLocation();
-        subscribeLocationLocation();
-      } else {
-        setLocationStatus('Permission Denied');
-      }
-    } catch (err) {
-      console.warn(err);
-    }
-  }
-};
-
-const fetchData = async () => {
-  let url = 'http://localhost:50629/api/localizacao/lista';
-  fetch(url, {
-    method: 'GET',
-  })
-    .then((response) => response.json())
-    .then((place) => {
-      if (place.length > 0) {
-        this.state.place = place;
-      } else {
-        this.state.place = place;
-        Alert.alert(
-          'Nenhum local encontrado',
-          'O que acha de cadastrar um endereço?',
-        );
-      }
-    });
-};
+// const fetchData = async () => {
+//   let url = 'http://localhost:50629/api/localizacao/lista';
+//   fetch(url, {
+//     method: 'GET',
+//   })
+//     .then((response) => response.json())
+//     .then((place) => {
+//       if (place.length > 0) {
+//         this.state.place = place;
+//       } else {
+//         this.state.place = place;
+//         Alert.alert(
+//           'Nenhum local encontrado',
+//           'O que acha de cadastrar um endereço?',
+//         );
+//       }
+//     });
+// };
 
 class AnimatedMarkers extends React.Component {
   constructor(props) {
@@ -78,8 +52,8 @@ class AnimatedMarkers extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    await fetchData();
+  componentDidMount() {
+    // await fetchData();
 
     const {coordinate} = this.state;
 
@@ -123,7 +97,6 @@ class AnimatedMarkers extends React.Component {
   }
 
   componentWillUnmount() {
-    requestLocationPermission();
     Geolocation.clearWatch(this.watchID);
   }
 
@@ -156,6 +129,7 @@ class AnimatedMarkers extends React.Component {
             }}
             coordinate={this.state.coordinate}
           />
+          <Marker.Animated coordinate={this.state.coordinate} />
         </MapView>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={[styles.bubble, styles.button]}>
